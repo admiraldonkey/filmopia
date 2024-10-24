@@ -10,6 +10,7 @@ app.use(
     headers: ["Content-Type"],
   })
 );
+app.options("*", cors());
 app.use(express.json());
 dotenv.config();
 
