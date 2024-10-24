@@ -1,0 +1,129 @@
+/* GLOBAL STYLING */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  color: white;
+  /* color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace; */
+}
+
+header a {
+  text-decoration: none;
+}
+
+header button {
+  background-color: white;
+  border-radius: 50px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace;
+  margin: 0px;
+  padding: 20px;
+  height: 100%;
+  font-size: 80px;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.choices {
+  color: white;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.status {
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+#user-action button {
+  background-color: white;
+  border-radius: 50px;
+  /* border: 1px solid white; */
+  font-size: 40px;
+  padding: 20px;
+}
+
+#form-container {
+  color: white;
+}
+
+#review-container {
+  color: white;
+  text-align: left;
+  width: 100%;
+  height: 80vh;
+}
+
+#review-container div {
+  margin: 20px;
+  padding: 10px;
+  font-size: 24px;
+}
+
+#review-container div span {
+  font-size: 26px;
+  font-family: monospace;
+  font-weight: bold;
+  color: #b7e0ff;
+}
+
+#review-container div p {
+  font-family: sans-serif;
+  color: #e78f81;
+}
+
+#review-container div p:first-of-type {
+  color: #ffcfb3;
+}
+
+.hidden {
+  display: none;
+}
+
+/* TODO : 
+- media queries to handle different device sizes
+- Style form
+- Style retreived review content
+- Implement form validation
+- Implement interactivity (sounds, animations, etc)
+- Implement delete post function
+- Implement ability to like posts
+- Test
+- Clean up/refactor code
+- Test some more
+- Update README file
+- Confirm submission details
+*/

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmopia</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <button id="header-view-reviews-btn" class="hidden">
+          View Reviews
+        </button>
+        <p id="header-reviews-loading" class="status hidden">
+          Loading... Please wait...
+        </p>
+      </div>
+      <div><h1>Filmopia</h1></div>
+      <div>
+        <button id="header-submit-review-btn" class="hidden">
+          Submit Review
+        </button>
+      </div>
+    </header>
+    <main>
+      <div id="user-action" class="choices">
+        <div>
+          <button id="choose-view-btn">View All Reviews</button>
+          <p id="reviews-loading" class="status hidden">
+            Loading... Please wait...
+          </p>
+        </div>
+        <button id="choose-submit-btn">Submit New Review</button>
+      </div>
+      <div id="form-container" class="hidden">
+        <form id="review-form">
+          <label for=""></label>
+          <input name="title" type="text" placeholder="Film Title" />
+          <label for=""></label>
+          <input
+            id="form-rating-range"
+            name="rating"
+            type="range"
+            min="0"
+            max="10"
+            value="5"
+          />
+          <span id="form-rating-value">5</span>
+          <label for=""></label>
+          <input name="review" type="text" placeholder="Your Review" />
+          <label for=""></label>
+          <input
+            name="fact"
+            type="text"
+            placeholder="Add a cool fact about the film"
+          />
+          <input name="likes" type="hidden" value="0" />
+          <button>Submit</button>
+        </form>
+      </div>
+      <div id="review-container" class="reviews hidden"></div>
+    </main>
+  </body>
+</html>
