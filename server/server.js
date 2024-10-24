@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 const app = express();
 app.use(
   cors({
-    origin: "https://filmopia-1.onrender.com/",
+    origin: "https://filmopia-1.onrender.com",
     headers: ["Content-Type"],
   })
 );
