@@ -75,7 +75,7 @@ async function handleSubmit(event) {
   const formData = new FormData(reviewForm);
   const body = Object.fromEntries(formData);
 
-  const response = await fetch("https://filmopia.onrender.com", {
+  const response = await fetch("http://filmopia.onrender.com", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
