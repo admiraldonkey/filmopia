@@ -1,10 +1,15 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import pg from "pg";
 import dotenv from "dotenv";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://filmopia-1.onrender.com/",
+    headers: ["Content-Type"],
+  })
+);
 app.use(express.json());
 dotenv.config();
 

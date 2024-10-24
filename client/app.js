@@ -16,7 +16,7 @@ const mainLoadingStatus = document.getElementById("reviews-loading");
 
 // Fetch reviews from API
 async function getReviews() {
-  const response = await fetch("http://filmopia.onrender.com/reviews");
+  const response = await fetch("https://filmopia.onrender.com/reviews");
   return await response.json();
 }
 
@@ -75,13 +75,14 @@ async function handleSubmit(event) {
   const formData = new FormData(reviewForm);
   const body = Object.fromEntries(formData);
 
-  const response = await fetch("http://filmopia.onrender.com/reviews", {
+  const response = await fetch("https://filmopia.onrender.com/reviews", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",  },
     body: JSON.stringify(body),
   });
   console.log(response);
 }
+// Access-Control-Allow-Origin: http://www.example.com
 
 // Notifies the user that the requested action is in progress and clears when completed
 function toggleStatus(buttonId) {
