@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmopia</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" src="./app.js" defer></script>
   </head>
   <body>
@@ -34,11 +40,17 @@
         </div>
         <button id="choose-submit-btn">Submit New Review</button>
       </div>
-      <div id="form-container" class="hidden">
+      <div id="form-container" class="form-container hidden">
         <form id="review-form">
-          <label for=""></label>
-          <input name="title" type="text" placeholder="Film Title" />
-          <label for=""></label>
+          <label for="film-name">Film Name:</label>
+          <input
+            id="film-name"
+            name="title"
+            type="text"
+            placeholder="Enter film title"
+            required
+          />
+          <label for="form-rating-range">Your Rating:</label>
           <input
             id="form-rating-range"
             name="rating"
@@ -46,20 +58,31 @@
             min="0"
             max="10"
             value="5"
+            minlength="10"
+            required
           />
           <span id="form-rating-value">5</span>
-          <label for=""></label>
-          <input name="review" type="text" placeholder="Your Review" />
-          <label for=""></label>
+          <label for="film-review">Your Review:</label>
+          <textarea
+            id="film-review"
+            name="review"
+            rows="4"
+            cols="33"
+            placeholder="Enter your review here"
+            required
+          ></textarea>
+          <label for="film-fact">Cool Fact: </label>
           <input
+            id="film-fact"
             name="fact"
             type="text"
-            placeholder="Add a cool fact about the film"
+            placeholder="Add a cool fact about the film here!"
           />
           <input name="likes" type="hidden" value="0" />
-          <button>Submit</button>
+          <button id="submit">Submit</button>
         </form>
       </div>
+
       <div id="review-container" class="reviews hidden"></div>
     </main>
   </body>

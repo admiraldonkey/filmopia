@@ -1,4 +1,7 @@
-/* GLOBAL STYLING */
+/* 
+GLOBAL STYLING 
+*/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,82 +9,187 @@
 }
 
 body {
-  background-color: black;
+  background-color: #243642;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
+/* Temporary status message displayed to user when an async action is underway/has completed */
+.status {
+  padding-top: 10px;
+  font-size: 24px;
+  position: relative;
+  color: #fff5cd;
+}
+
+/* 
+HEADER 
+*/
+
+/* Section header into 3 for H1 in middle with (dynamically hiding) buttons on either side */
 header {
   display: grid;
   grid-template: 1fr / 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
-  color: white;
-  /* color: white;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: monospace; */
-}
-
-header a {
-  text-decoration: none;
 }
 
 header button {
-  background-color: white;
+  background-color: #a0d683;
+  border: 1px solid #a0d683;
   border-radius: 50px;
   padding: 20px;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: monospace;
+}
+
+header button:hover {
+  background-color: #72bf78;
 }
 
 h1 {
-  color: white;
+  color: #fff5cd;
   text-align: center;
   text-transform: uppercase;
-  font-family: monospace;
+  font-family: "Londrina Sketch", sans-serif;
   margin: 0px;
   padding: 20px;
   height: 100%;
-  font-size: 80px;
+  font-size: 120px;
 }
 
+h1:hover {
+  cursor: pointer;
+}
+
+/* 
+MAIN SITE CONTENT 
+*/
 main {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: black; */
 }
 
+/* 
+SPLASHPAGE 
+*/
+/* Splashpage for user to decide whether to view reviews or post a review */
 .choices {
-  color: white;
-  width: 100vw;
+  width: 70vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 5%;
 }
 
-.status {
-  padding-top: 10px;
-  font-size: 24px;
-}
-
+/* Splash page buttons */
 #user-action button {
-  background-color: white;
+  background-color: #e2f1e7;
+  color: #243642;
   border-radius: 50px;
-  /* border: 1px solid white; */
+  border: 1px solid #243642;
   font-size: 40px;
+  padding: 30px;
+  margin: 20px 0px;
+}
+
+#user-action button:hover {
+  background-color: #629584;
+  border: 1px solid #387478;
+  box-shadow: 0px 0px 70px #387478;
+  color: #e2f1e7;
+}
+
+/* Status message when user clicks to view all reviews */
+#reviews-loading {
+  position: absolute;
+  color: #fff5cd;
+}
+
+/* 
+POST NEW REVIEW FORM 
+*/
+/* Container for review form */
+.form-container {
+  color: white;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#review-form label {
+  font-size: 30px;
+  font-family: monospace;
+  color: #e78f81;
+}
+
+#review-form input,
+textarea {
   padding: 20px;
+  font-size: 20px;
+  margin: 10px 0;
+  margin-bottom: 5%;
+  border-radius: 15px;
 }
 
-#form-container {
-  color: white;
+#review-form input:focus,
+textarea:focus {
+  outline: 4px solid #629584;
 }
 
+#review-form #form-rating-range {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#review-form span {
+  text-align: center;
+  font-size: 36px;
+  padding-bottom: 10px;
+  color: #fff5cd;
+}
+
+#review-form button {
+  padding: 20px;
+  font-size: 26px;
+  margin-top: 10px;
+  background-color: #a0d683;
+  color: #243642;
+  border: 1px solid #a0d683;
+  border-radius: 20px;
+  font-family: monospace;
+}
+
+#review-form button:hover {
+  background-color: #72bf78;
+  border: 1px solid #72bf78;
+  box-shadow: 0px 0px 20px #387478;
+}
+
+/* Temporary status message when form successfully submits */
+#review-form p {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #72bf78;
+}
+
+/* 
+DISPLAY ALL REVIEWS 
+*/
 #review-container {
-  color: white;
   text-align: left;
   width: 100%;
   height: 80vh;
@@ -91,8 +199,46 @@ main {
   margin: 20px;
   padding: 10px;
   font-size: 24px;
+  border: 2px solid transparent;
+  position: relative;
 }
 
+/* Highlight each review as user hovers over */
+#review-container div:hover {
+  border: 2px solid #fff5cd;
+  border-radius: 10px;
+}
+
+.like-btn {
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 30px;
+  float: right;
+  margin-right: 20px;
+  border: none;
+  background-color: #a0d683;
+}
+
+.delete-btn {
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 30px;
+  float: right;
+  border: none;
+  background-color: #e78f81;
+}
+
+.like-btn:hover {
+  background-color: #31511e;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c62e2e;
+  color: white;
+}
+
+/* Headers/titles for review content */
 #review-container div span {
   font-size: 26px;
   font-family: monospace;
@@ -105,22 +251,112 @@ main {
   color: #e78f81;
 }
 
+/* Change colour for film title */
 #review-container div p:first-of-type {
   color: #ffcfb3;
 }
 
+/* Class used to dynamically hide/unhide DOM elements as required */
 .hidden {
   display: none;
 }
 
+/* 
+MEDIA QUERIES 
+*/
+@media (max-width: 900px) {
+  /* HEADER */
+  header h1 {
+    font-size: 65px;
+  }
+  header button {
+    font-size: 14px;
+    padding: 10px;
+    position: relative;
+  }
+
+  #header-view-reviews-btn {
+    margin-left: 10px;
+  }
+
+  #header-submit-review-btn {
+    margin-right: 10px;
+  }
+  /* Temp status notices */
+  .status {
+    position: absolute;
+    font-size: 14px;
+  }
+  /* SPLASHSCREEN */
+  #user-action button {
+    font-size: 26px;
+    padding: 20px;
+    margin: 0px;
+  }
+  /* Temp message to display when user clicks to view reviews from splashscreen */
+  #reviews-loading {
+    margin-top: 10px;
+  }
+  #user-action #choose-submit-btn {
+    margin-top: 60px;
+  }
+  /* FORM TO POST NEW REVIEW */
+  #review-form {
+    width: 80%;
+  }
+
+  #review-form label,
+  textarea {
+    font-size: 20px;
+  }
+
+  #review-form #form-rating-value {
+    font-size: 24px;
+  }
+  #review-form button {
+    font-size: 20px;
+    width: 50%;
+    align-self: center;
+    padding: 10px;
+  }
+  #review-form input,
+  textarea {
+    border: none;
+  }
+  #review-form input:focus,
+  textarea:focus {
+    outline: 5px solid #629584;
+  }
+  .like-btn {
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 10px;
+  }
+  .delete-btn {
+    font-size: 16px;
+    padding: 10px;
+  }
+  /* DISPLAY ALL REVIEWS */
+  #review-container div {
+    margin: 10px 5px;
+    border: 1px solid transparent;
+  }
+  #review-container div:hover {
+    border: 1px solid #fff5cd;
+    border-radius: 10px;
+  }
+
+  #review-container div span {
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  #review-container div p {
+    font-size: 18px;
+  }
+}
+
 /* TODO : 
-- media queries to handle different device sizes
-- Style form
-- Style retreived review content
-- Implement form validation
-- Implement interactivity (sounds, animations, etc)
-- Implement delete post function
-- Implement ability to like posts
 - Test
 - Clean up/refactor code
 - Test some more

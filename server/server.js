@@ -4,13 +4,7 @@ import pg from "pg";
 import dotenv from "dotenv";
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://filmopia-1.onrender.com",
-    headers: ["Content-Type"],
-  })
-);
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 dotenv.config();
 
@@ -35,6 +29,29 @@ app.post("/reviews", async function (req, res) {
 
   // Receive data from db
   res.json("Success!");
+});
+
+app.put("/reviews", async function (req, res) {
+  // console.log(reviewId);
+  // console.log(req.body);
+  const reviewId = req.body[0];
+  const reviewLikes = req.body[1];
+  // console.log(reviewId);
+  // console.log(reviewLikes);
+  // console.log(typeof reviewLikes);
+  const result = await db.query("UPDATE reviews SET likes = $1 WHERE id = $2", [
+    reviewLikes,
+    reviewId,
+  ]);
+});
+
+app.delete("/reviews/:id", async function (req, res) {
+  const getReviewId = req.url.split("/", [3]);
+  const reviewId = getReviewId[2];
+  console.log(reviewId);
+  const result = await db.query("DELETE FROM reviews WHERE id = $1", [
+    reviewId,
+  ]);
 });
 
 app.listen(8080, () => console.log("App is running on port 8080"));
