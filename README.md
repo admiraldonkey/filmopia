@@ -1,6 +1,6 @@
 # Filmopia
 
-Simple film review site with full CRUD functionality.
+Software Development Bootcamp - Week 4 Project - Simple film review site with full CRUD functionality.
 
 # Reflecton
 
